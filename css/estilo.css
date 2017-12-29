@@ -1,0 +1,24 @@
+#cuerpoo
+{
+	background-color: red;
+	height: 645px;
+	width: 1350px;
+}
+
+#izquierda
+{
+	height: 100px;
+	left: 10px;
+	top: 10px;
+	position: absolute;
+	width: 400px;
+}
+
+#derecha
+{
+	height: 300px;
+	top: 50px;
+	position: absolute;
+	right: 50px;
+	width: 500px;
+}

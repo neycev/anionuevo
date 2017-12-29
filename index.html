@@ -1,10 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>Feliz Cumpleaños Sol</title>
+	<link rel="stylesheet" href="/felizcumpleanios/css/estilo.css">
+   <style>
+      #sol
+      {
+         color: white;
+         text-transform: uppercase;
+         margin-left: 170px;
+         -webkit-animation: mymove 5s infinite; /* Safari 4.0 - 8.0 */
+         animation: mymove 5s infinite;
+      }
+
+      /* Safari 4.0 - 8.0 */
+      @-webkit-keyframes mymove 
+      {
+          0%   {font-size: 5px; color: white;}
+          100% {font-size: 35px; color: #03A3EB;}
+      }
+
+      @-moz-keyframes mymove 
+      {
+          0%   {font-size: 5px; color: white;}
+          100% {font-size: 35px; color: #03A3EB;}
+      }
+
+      @-ms-keyframes mymove 
+      {
+          0%   {font-size: 5px; color: white;}
+          100% {font-size: 35px; color: #03A3EB;}
+      }
+
+      @-o-keyframes mymove 
+      {
+          0%   {font-size: 5px; color: white;}
+          100% {font-size: 35px; color: #03A3EB;}
+      }
+
+      /* Standard syntax */
+      @keyframes mymove {
+          0%   {font-size: 5px; color: white;}
+          100% {font-size: 35px; color: #03A3EB;}
+      }
+
+   </style>
 </head>
 <body>
-	index
+	<div id="cuerpoo">
+		<img src="/felizcumpleanios/img/fondo.jpg" alt="">
+		<div id="izquierda">
+			<div id="reproductorBox"></div>
+			<select id = "selectTrack" multiple onchange="cambiarTrack(this.options[this.selectedIndex]);">
+            <option value=""></option>
+				<option path="/felizcumpleanios/musica/FELIZ CUMPLEAÑOS-SOLANSH.mp3">FELIZ CUMPLEAÑOS-SOLANSH</option>
+				<option path="/felizcumpleanios/musica/Abba-Dancing Queen.mp3">Abba-Dancing Queen</option>
+				<option path="/felizcumpleanios/musica/Titanium-David Guetta.mp3">Titanium-David Guetta</option>
+			</select>
+		</div>
+		<div id="derecha" style="color: white; padding: 18px; font-size: 30px; font-weight: 300; letter-spacing: .1rem;
+        text-decoration: none; text-transform: uppercase; margin-top: 0px;">
+			Cada nuevo AMANECER nos da otra oportunidad para cumplir nuestros SUEÑOS. Deseo que los tuyos se transformen en una linda REALIDAD. Feliz CUMPLEAÑOS...
+         <br><br>
+         <label id="sol" for="">solansh</label>
+		</div>
+	</div>
+
+	<script>
+function cambiarTrack(track) {
+   var path =  track.getAttribute("path")
+   viejo_audio = document.getElementById("reproductor")
+   audio_padre = viejo_audio.parentNode
+   audio_padre.removeChild(viejo_audio)
+   nuevo_audio = document.createElement("audio")
+   nuevo_audio.setAttribute("id","reproductor")
+   nuevo_audio.setAttribute("controls", "controls")
+  // snuevo_audio.setAttribute("autoplay", "autoplay")
+   source = document.createElement("source")
+   source.setAttribute("src", path)
+   source.setAttribute("type", "audio/mpeg")
+   source.setAttribute("id", "reproductorSource")
+   nuevo_audio.appendChild(source)
+   audio_padre.appendChild(nuevo_audio)}
+function cargarReproductor() {
+         var select = document.getElementById("selectTrack")
+         var path = select.options[0].getAttribute("path")
+   nuevo_audio = document.createElement("audio")
+   nuevo_audio.setAttribute("id","reproductor")
+   nuevo_audio.setAttribute("controls", "controls")       
+   source = document.createElement("source")
+   source.setAttribute("src", path)
+   source.setAttribute("type", "audio/mpeg")
+   source.setAttribute("id", "reproductorSource")
+   nuevo_audio.appendChild(source)
+   padre = document.getElementById("reproductorBox")
+   padre.appendChild(nuevo_audio)
+}
+</script>
+
+<script>cargarReproductor();</script>
 </body>
 </html>
